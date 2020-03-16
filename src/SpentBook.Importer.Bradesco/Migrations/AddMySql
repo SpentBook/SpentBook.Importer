@@ -1,0 +1,1 @@
+dotnet ef migrations add "MIGRATE_$(date +'%Y%m%d_%H%M')" --project ../SpentBook.Migrations.MySql

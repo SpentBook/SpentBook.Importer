@@ -5,11 +5,24 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpentBook.Importer.Bradesco", "SpentBook.Importer.Bradesco\SpentBook.Importer.Bradesco.csproj", "{7C8E6B25-94AF-4DC3-A98E-0141DED93CA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpentBook.Importer.Bradesco.Infrastructure", "SpentBook.Importer.Bradesco.Infrastructure\SpentBook.Importer.Bradesco.Infrastructure.csproj", "{5966E1CB-1C98-4FD1-9743-6942FB4F95D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpentBook.Importer.Bradesco.Infrastructure", "SpentBook.Importer.Bradesco.Infrastructure\SpentBook.Importer.Bradesco.Infrastructure.csproj", "{5966E1CB-1C98-4FD1-9743-6942FB4F95D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpentBook.Importer.Bradesco.Domain", "SpentBook.Importer.Bradesco.Domain\SpentBook.Importer.Bradesco.Domain.csproj", "{6CDC86A3-CFAC-490B-9CBC-536C7FF34B7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpentBook.Importer.Bradesco.Domain", "SpentBook.Importer.Bradesco.Domain\SpentBook.Importer.Bradesco.Domain.csproj", "{6CDC86A3-CFAC-490B-9CBC-536C7FF34B7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpentBook.Importer.Bradesco.Application", "SpentBook.Importer.Bradesco.Application\SpentBook.Importer.Bradesco.Application.csproj", "{63996D76-F997-4E55-9E04-F4EAD8F15E6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpentBook.Importer.Bradesco.Application", "SpentBook.Importer.Bradesco.Application\SpentBook.Importer.Bradesco.Application.csproj", "{63996D76-F997-4E55-9E04-F4EAD8F15E6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{4C591DA1-0799-46B0-8521-C5EA90403612}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{37BA1117-6F9F-4BA6-B444-9F3174501033}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpentBook.Migrations.MySql", "SpentBook.Migrations.MySql\SpentBook.Migrations.MySql.csproj", "{4C1C6657-44B0-4310-A03C-90D44F01A07F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpentBook.Migrations.SqlServer", "SpentBook.Migrations.SqlServer\SpentBook.Migrations.SqlServer.csproj", "{535F5A90-7529-466D-871F-7171B2DA201C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +46,21 @@ Global
 		{63996D76-F997-4E55-9E04-F4EAD8F15E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63996D76-F997-4E55-9E04-F4EAD8F15E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63996D76-F997-4E55-9E04-F4EAD8F15E6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C1C6657-44B0-4310-A03C-90D44F01A07F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C1C6657-44B0-4310-A03C-90D44F01A07F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C1C6657-44B0-4310-A03C-90D44F01A07F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C1C6657-44B0-4310-A03C-90D44F01A07F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{535F5A90-7529-466D-871F-7171B2DA201C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{535F5A90-7529-466D-871F-7171B2DA201C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{535F5A90-7529-466D-871F-7171B2DA201C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{535F5A90-7529-466D-871F-7171B2DA201C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C1C6657-44B0-4310-A03C-90D44F01A07F} = {37BA1117-6F9F-4BA6-B444-9F3174501033}
+		{535F5A90-7529-466D-871F-7171B2DA201C} = {37BA1117-6F9F-4BA6-B444-9F3174501033}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5AA0A418-A6E0-4283-99BB-10F5EBE1295D}

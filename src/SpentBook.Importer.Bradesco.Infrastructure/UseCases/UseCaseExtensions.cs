@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SpentBook.Importer.Bradesco.Application.UseCases;
 
-namespace SpentBook.Importer.Bradesco.Infrastructure.DI.UseCases
+namespace SpentBook.Importer.Bradesco.Infrastructure.UseCases
 {
     public static class UseCaseExtensions
     {
