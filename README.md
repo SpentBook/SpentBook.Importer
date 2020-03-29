@@ -25,7 +25,7 @@ Links importantes:
 1. Atualize o `appsettings.json` do projeto principal (console, web). Localize a configuração `AppSettings:DataBaseName` e altere para: `MySql` ou `SqlServer`.
 
 ```
-cd src/SpentBook.Importer.Bradesco
+cd src/SpentBook.Importer
 vim appsettings.json
 ```
 
@@ -33,7 +33,7 @@ vim appsettings.json
 
 
 ```
-cd src/SpentBook.Importer.Bradesco
+cd src/SpentBook.Importer
 ./Migrations/AddMysql
 ```
 
@@ -46,7 +46,7 @@ dotnet ef migrations add "NOME_MIGRACAO" --project ../SpentBook.Migrations.MySql
 3. Criar uma migração quando usamos o SqlServer (`AppSettings:DataBaseName=SqlServer`)
 
 ```
-cd src/SpentBook.Importer.Bradesco
+cd src/SpentBook.Importer
 ./Migrations/AddSqlServer
 ```
 
@@ -59,7 +59,7 @@ dotnet ef migrations add "NOME_MIGRACAO" --project ../SpentBook.Migrations.SqlSe
 4. Atualizar o banco de dados (ambos)
 
 ```
-cd src/SpentBook.Importer.Bradesco
+cd src/SpentBook.Importer
 ./Migrations/Update
 ```
 
@@ -177,8 +177,62 @@ dotnet ef database update
 
 # Openshift install
 
-oc new-app 'dotnet:3.1~https://github.com/SpentBook/SpentBook.Importer.Bradesco.git' \
+Instalar no openshift:
+
+## Cria a estrutura de pastas
+
+```
+cd /files
+mkdir /files/spentbook/ofx
+cd /files/spentbook/ofx
+mkdir Source
+mkdir Error
+mkdir Processed
+mkdir Working
+```
+
+## Adiciona permissao total
+
+```
+chmod -R 777 /files/spentbook
+```
+
+## Cria o projeto se não existir
+
+oc new-project spentbook
+
+## Adiciona permissão para acessar hostPath de dentro do container deste projeto
+
+```
+oadm policy add-scc-to-user hostaccess -z default
+```
+
+## Permite que a pasta seja acessada por containers (Isso não permite acessar via samba, é melhor desatviar o celinux)
+
+```
+sudo chcon -R unconfined_u:object_r:svirt_sandbox_file_t:s0 /files/spentbook/
+```
+
+## Desativar o selinux: `/etc/sysconfig/selinux`
+sudo vim /etc/sysconfig/selinux
+
+```
+SELINUX=disabled
+SELINUXTYPE=targeted
+```
+
+## Sobe a aplicação no openshift
+
+```
+oc new-app 'dotnet:3.1~https://github.com/SpentBook/SpentBook.Importer.git' \
     --name=importer-ofx \
     --context-dir src \
-    --build-env DOTNET_STARTUP_PROJECT=SpentBook.Importer.Bradesco/SpentBook.Importer.Bradesco.csproj \
+    --build-env DOTNET_STARTUP_PROJECT=SpentBook.Importer/SpentBook.Importer.csproj \
     --build-env DOTNET_CONFIGURATION=Release
+```
+
+## Adiciona um volume ao DC
+
+```
+oc set volume dc/importer-ofx --add --name=storage -t hostPath --path=/files/spentbook/ofx --mount-path='/opt/app-root/app/Data' --overwrite
+```

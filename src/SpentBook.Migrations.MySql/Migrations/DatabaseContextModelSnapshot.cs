@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SpentBook.Importer.Bradesco.Infrastructure.EntityFramework;
+using SpentBook.Importer.Infrastructure.EntityFramework;
 
 namespace SpentBook.Migrations.MySql.Migrations
 {
@@ -17,7 +17,7 @@ namespace SpentBook.Migrations.MySql.Migrations
                 .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("SpentBook.Importer.Bradesco.Domain.Models.Transaction", b =>
+            modelBuilder.Entity("SpentBook.Importer.Domain.Models.Transaction", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("char(36)");

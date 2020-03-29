@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SpentBook.Importer.Bradesco.Infrastructure.EntityFramework;
+using SpentBook.Importer.Infrastructure.EntityFramework;
 
 namespace SpentBook.Migrations.SqlServer.Migrations
 {
@@ -19,7 +19,7 @@ namespace SpentBook.Migrations.SqlServer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SpentBook.Importer.Bradesco.Domain.Models.Transaction", b =>
+            modelBuilder.Entity("SpentBook.Importer.Domain.Models.Transaction", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
